@@ -1,0 +1,7 @@
+div.CardList{
+    background-color: chartreuse;
+    display: flex;
+    order: 4;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}

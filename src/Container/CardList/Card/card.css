@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Ubuntu+Mono');
+
+div.Card{
+    background-color: rgb(76, 149, 192);
+    padding: 10px 5px;
+    margin: 10px;
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+div.Card:not(i){
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 35px;
+}
+div.Card *{
+    padding: 0px;
+    margin: 5px;
+}
+
+.where{
+    font-size: auto;
+    text-align: center;
+}
+
+.temp{
+    display: inline-block;
+    font-size: 75px;
+    z-index: 10;
+}
+
+i{
+    font-size: 90px;
+    display: inline-block;
+    color: yellow;
+    z-index: 9;
+    animation: animacion_icono 10s infinite linear;
+}
+
+@keyframes animacion_icono{
+    from {transform: rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.micel{
+    height: 48%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+}
