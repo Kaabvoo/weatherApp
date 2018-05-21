@@ -3,6 +3,11 @@ import 'weather-icons/css/weather-icons.css';
 import './card.css'
 
 export default class Card extends Component {
+    
+    componentDidMount(){
+        console.log("Mounted")
+    }
+
     render() {
         return (
             <div className="Card">
