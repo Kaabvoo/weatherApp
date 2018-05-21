@@ -1,26 +1,25 @@
 div.Header{
-    background: linear-gradient(to right, grey, lightgray, lightblue , lightgray, gray);
+    background: linear-gradient(to right, grey, lightgray, rgba(91, 136, 204, 0.829) , lightgray, gray);
     border-radius: 25px;
-    position: relative;
-    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
 }
 
 h1{
-    display: inline-block;
-    margin: 5px 3px;
-    width: auto;
+    margin:5px;
+    padding: 3px;
 }
 
 button{
-    position: absolute;
-    top: 20%;
-    display: inline-block;
-    font-size: 15px;
-    text-align: center;
-    align-content: center;
-    height: 30px;
-    right: 5%;
+    padding: 5px;
     border-radius: 25px;
+}
+
+.entrada{
+    margin: 5px;
+    padding: 3px;
 }
 
 button:hover{
@@ -28,20 +27,12 @@ button:hover{
 }
 
 @media screen and (max-width: 768px) {
-    button{
-        width: 50%;
-        margin: auto;
-        position: relative;
-        top: -5%;
-        left: 25%;
-        float: none;
-        display: inline-block;
-        text-align: center;
-    }
 
-    h1{
-        float: none;
-        width: 100%;
-        text-align: center;
+    div.Header{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-content: center;
     }
+    
 }

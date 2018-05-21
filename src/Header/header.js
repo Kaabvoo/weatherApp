@@ -19,7 +19,7 @@ export default class Header extends Component {
       <div className="Header">
         <h1 className="" >Weather Channel</h1>
         <button onClick={this.cambiarYMostrar}>Add Location</button>
-        <p>{this.state.estado ? "true" : "false"}</p>
+        {this.state.estado ? <input type="text" className = "entrada" /> : null}
       </div>
     );
   }

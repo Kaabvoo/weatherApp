@@ -7,6 +7,10 @@ export default class CardList extends Component {
         return (
             <div className="CardList">
                 <Card className="Cards"/>
+                <Card className="Cards"/>
+                <Card className="Cards"/>
+                <Card className="Cards"/>
+                <Card className="Cards"/>
             </div>
         );
     }
