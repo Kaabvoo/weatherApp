@@ -3,22 +3,35 @@ import 'weather-icons/css/weather-icons.css';
 import './card.css'
 
 export default class Card extends Component {
-    
+    constructor(){
+        super()
+        this.state={
+            temp: 30,
+            interval: String,
+        }
+        this.timer = this.timer.bind(this);
+    }
+
     componentDidMount(){
-        console.log("Mounted")
+        //this.interval = setInterval(this.timer, 1000);
+    }
+
+    timer(){
+        this.setState({temp: this.state.temp - 1})
+        
     }
 
     render() {
+        const i = <i className="wi wi-day-sunny wi-fw"></i>
         return (
             <div className="Card">
-                <p className="where" >Monterrey</p>
+                <p className="where" >{this.props.name}</p>
                 <div className="icons">
-                    <i className="wi wi-day-sunny wi-fw"></i>
-                    <p className="temp" >30°C</p>
+                    <p className="temp" >{this.props.temp}°C</p>
                 </div>
                 <hr/>
                 <div className="micel">
-                    <p className="weather" >Soleado</p>
+                    <p className="weather" >{this.props.weather}</p>
                 </div>
             </div>
         );

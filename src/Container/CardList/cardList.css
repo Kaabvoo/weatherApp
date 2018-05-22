@@ -2,6 +2,6 @@ div.CardList{
     background-color: grey;
     display: flex;
     order: 4;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
+    flex-flow: wrap;
+    justify-content: flex-start;
 }

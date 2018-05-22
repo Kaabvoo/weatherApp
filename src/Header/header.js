@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import array_weather from '../objects/object'
 import Api from '../services/service'
 import './header.css';
 
@@ -16,9 +17,11 @@ export default class Header extends Component {
 
   cambiarYMostrar(o){
     if(this.state.estado){
+      this.props.check(true);
       Api.getLugar(this.state.lugar).then(ret=>{
-        console.log(ret.data);
-        this.setState({respuesta: ret.data})
+        var r = ret.data
+        array_weather.create_object(r.name, r.main.temp, r.main.temp_max, r.main.temp_min, r.main.humidity, r.wind.speed, r.wind.deg, r.id, r.weather[0].main);
+        //this.props.check(true);
       });
     }
     this.setState({estado: !this.state.estado})
