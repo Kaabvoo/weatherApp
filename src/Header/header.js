@@ -15,14 +15,13 @@ export default class Header extends Component {
     this.linker = this.linker.bind(this);
   }
 
-  cambiarYMostrar(o){
+  async cambiarYMostrar(o){
     if(this.state.estado){
-      this.props.check(true);
-      Api.getLugar(this.state.lugar).then(ret=>{
-        var r = ret.data
-        array_weather.create_object(r.name, r.main.temp, r.main.temp_max, r.main.temp_min, r.main.humidity, r.wind.speed, r.wind.deg, r.id, r.weather[0].main);
+      await Api.getLugar(this.state.lugar).then(ret=>{
+        array_weather.create_object(ret.data.name, Math.floor(ret.data.main.temp), ret.data.main.temp_max, ret.data.main.temp_min, ret.data.main.humidity, ret.data.wind.speed, ret.data.wind.deg, ret.data.id, ret.data.weather[0].main, ret.data.sys.country, ret.data.weather[0].main);
         //this.props.check(true);
       });
+      this.props.check(true);
     }
     this.setState({estado: !this.state.estado})
   }
@@ -36,7 +35,7 @@ export default class Header extends Component {
       <div className="Header">
         <h1>Weather Channel</h1>
         <button onClick={this.cambiarYMostrar}>Add Location</button>
-        {this.state.estado ? <input type="text" className="entrada"  onChange={this.linker} /> : null}
+        {this.state.estado ? <input name="city" autoComplete="on" type="text" className="entrada"  onChange={this.linker} /> : null}
       </div>
     );
   }

@@ -12,26 +12,24 @@ export default class Card extends Component {
         this.timer = this.timer.bind(this);
     }
 
-    componentDidMount(){
-        //this.interval = setInterval(this.timer, 1000);
-    }
-
     timer(){
         this.setState({temp: this.state.temp - 1})
         
     }
 
+    /*<hr/>
+                <div className="micel">
+                    <p className="weather" >{this.props.weather}</p>
+                </div>*/
+
     render() {
-        const i = <i className="wi wi-day-sunny wi-fw"></i>
+        const i = <i className={this.props.condition}></i>
         return (
             <div className="Card">
                 <p className="where" >{this.props.name}</p>
                 <div className="icons">
+                    {i}
                     <p className="temp" >{this.props.temp}°C</p>
-                </div>
-                <hr/>
-                <div className="micel">
-                    <p className="weather" >{this.props.weather}</p>
                 </div>
             </div>
         );

@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      item: Boolean,
+      item: [],
     };
     this.fromChild = this.fromChild.bind(this);
   }
@@ -21,7 +21,7 @@ class App extends Component {
       <div className="appHead" >
         <Header check = {this.fromChild} />
         <hr />
-        <Container/>
+        <Container />
       </div>
     );
   }
