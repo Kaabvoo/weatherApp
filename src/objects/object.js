@@ -36,8 +36,22 @@ var array_weather = {
             "id": i,
             "weather": w,
             "country": c,
-            "icon": prop
+            "icon": prop,
+            "index": this.data.length,
         })
+        localStorage.setItem("WetherLocal", JSON.stringify(array_weather.data))
+    },
+
+    update_index(){
+        //console.log(this.data.length)
+        for(var i = 0; i <= this.data.length-1; i++){
+            this.data[i].index = i
+        }
+    },
+
+    erase_object(ind){
+        this.data.splice(ind, 1);
+        this.update_index();
         localStorage.setItem("WetherLocal", JSON.stringify(array_weather.data))
     },
 
@@ -74,10 +88,6 @@ var array_weather = {
             return true;
         })
     },
-
-    // erase_object(id){
-
-    // },
 }
 
 export default array_weather;

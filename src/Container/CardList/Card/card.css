@@ -128,3 +128,29 @@ canvas{
         transform: translate3d(6px, 0, 0);
     }
 }
+
+.wi-day-sprinkle{
+    font-size: 80px;
+    display: inline-block;
+    color: darkslateblue;
+    z-index: 9;
+    animation: animacion_icono_rain 5s infinite linear;
+}
+
+@keyframes animacion_icono_rain{
+    10%, 90% {
+        transform: translate3d(0, -1px, 0);
+    }
+      
+    20%, 80% {
+        transform: translate3d(0, 4px, 0);
+    }
+    
+    30%, 50%, 70% {
+       transform: translate3d(0, -2px, 0);
+    }
+    
+    40%, 60% {
+        transform: translate3d(0, 6px, 0);
+    }
+}

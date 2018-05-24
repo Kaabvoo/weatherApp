@@ -8,12 +8,14 @@ export default class CardList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            test: false
+            test: false,
+            up: true,
         }
+        this.eraseItm = this.eraseItm.bind(this)
     }
     
     componentWillMount(){
-        console.log(JSON.parse(localStorage.getItem("WetherLocal")))
+        //console.log(JSON.parse(localStorage.getItem("WetherLocal")))
         if(JSON.parse(localStorage.getItem("WetherLocal")) !== null)
         {array_weather.data = JSON.parse(localStorage.getItem("WetherLocal"))}
         array_weather.update_object();
@@ -23,7 +25,13 @@ export default class CardList extends Component {
         localStorage.setItem("WetherLocal", JSON.stringify(array_weather.data))
     }
     componentWillUpdate(){
-        console.log(JSON.parse(localStorage.getItem("WetherLocal")))
+        JSON.parse(localStorage.getItem("WetherLocal"))
+    }
+
+    eraseItm(i){
+        array_weather.erase_object(i);
+        this.setState({up: !this.state.up})
+        
     }
 
     render() {
@@ -41,6 +49,8 @@ export default class CardList extends Component {
                         min = {card.temperature_min}
                         w_sp = {card.wind_speed}
                         w_dg = {Math.floor(card.wind_degree)}
+                        index = {card.index}
+                        erase = {this.eraseItm}
                     />
                     )}
                 )}

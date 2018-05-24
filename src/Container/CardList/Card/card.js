@@ -4,25 +4,31 @@ import 'weather-icons/css/weather-icons.css';
 import './card.css'
 
 export default class Card extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
             estado: false,
         }
         this.cardClick = this.cardClick.bind(this)
+        this.cardErase = this.cardErase.bind(this)
     }
 
     cardClick(i){
         this.setState({estado: !this.state.estado});
     }
 
+    cardErase() {
+        this.props.erase(this.props.index)
+    }
+
     rotation(){
-        var angle = this.props.w_dg;
-        return("transform: rotate({" + angle +"})")
+        return("dope")
     }
 
     render() {
+        const ico = <img src={arrow} alt="Arrow" className={this.rotation} height="110" />
         let d;
+        const i = <i className={this.props.condition}></i>
         if(this.state.estado){
             d = <div>
                     <hr/>
@@ -35,7 +41,7 @@ export default class Card extends Component {
                             <p className="de">Degree: {this.props.w_dg}</p> 
                         </div>
                         <div className="Rot">
-                            <img src={arrow} alt="Arrow" height="100" width="100" style={this.rotation} /> 
+                            {ico}
                         </div>
                     </div>
                 </div>
@@ -43,9 +49,8 @@ export default class Card extends Component {
         else{
             d = null
         }
-        const i = <i className={this.props.condition}></i>
         return (
-            <div className="Card" onClick={this.cardClick}>
+            <div className="Card" onClick={this.cardClick} onDoubleClick={this.cardErase} >
                 <p className="where" >{this.props.name}</p>
                 <div className="icons">
                     {i}
