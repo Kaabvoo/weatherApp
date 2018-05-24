@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Ubuntu+Mono');
+
+div.Card{
+    background-color: rgb(76, 149, 192);
+    padding: 5px 5px;
+    margin: 5px 5px;
+    width: 260px;
+    border-radius: 10px;
+}
+
+div.Card:not(i){
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 35px;
+}
+div.Card *{
+    padding: 0px;
+    margin: 5px;
+}
+
+.where{
+    font-size: auto;
+    text-align: center;
+}
+
+.temp{
+    display: inline-block;
+    font-size: 70px;
+    z-index: 10;
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.micel{
+    height: 48%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+}
+
+.DBox{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+
+canvas{
+    width: 100%;
+    height: 100%;
+}
+
+.Detalles{
+    margin: 0px;
+    width: 40%;
+}
+
+.Detalles *{
+    margin: 0px;
+    font-size: 15px;
+}
+
+/*-----------------------------------------------------Animations---------------------------------------------------*/
+
+.wi-day-sunny{
+    font-size: 90px;
+    display: inline-block;
+    color: yellow;
+    z-index: 9;
+    animation: animacion_icono 20s infinite linear;
+}
+
+@keyframes animacion_icono{
+    from {transform: rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.wi-day-rain{
+    font-size: 75px;
+    display: inline-block;
+    color: darkcyan;
+    z-index: 9;
+    animation: animacion_icono_rain 1s infinite linear;
+}
+
+@keyframes animacion_icono_rain{
+    10%, 90% {
+        transform: translate3d(0, -1px, 0);
+    }
+      
+    20%, 80% {
+        transform: translate3d(0, 2px, 0);
+    }
+    
+    30%, 50%, 70% {
+       transform: translate3d(0, -4px, 0);
+    }
+    
+    40%, 60% {
+        transform: translate3d(0, 4px, 0);
+    }
+}
+
+.wi-day-cloudy{
+    font-size: 80px;
+    display: inline-block;
+    color: darkgray;
+    z-index: 9;
+    animation: animacion_icono_cloudy 10s infinite linear;
+}
+
+@keyframes animacion_icono_cloudy{
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+      
+    20%, 80% {
+        transform: translate3d(4px, 0, 0);
+    }
+    
+    30%, 50%, 70% {
+       transform: translate3d(-2px, 0, 0);
+    }
+    
+    40%, 60% {
+        transform: translate3d(6px, 0, 0);
+    }
+}
+
+.wi-day-sprinkle{
+    font-size: 80px;
+    display: inline-block;
+    color: darkslateblue;
+    z-index: 9;
+    animation: animacion_icono_rain 5s infinite linear;
+}
+
+@keyframes animacion_icono_rain{
+    10%, 90% {
+        transform: translate3d(0, -1px, 0);
+    }
+      
+    20%, 80% {
+        transform: translate3d(0, 4px, 0);
+    }
+    
+    30%, 50%, 70% {
+       transform: translate3d(0, -2px, 0);
+    }
+    
+    40%, 60% {
+        transform: translate3d(0, 6px, 0);
+    }
+}

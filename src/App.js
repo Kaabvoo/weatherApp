@@ -4,11 +4,23 @@ import Container from './Container/container';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      item: [],
+    };
+    this.fromChild = this.fromChild.bind(this);
+  }
+
+  fromChild(i){
+    this.setState({item: i})
+  }
 
   render() {
     return (
-      <div>
-        <Header />
+      <div className="appHead" >
+        <Header check = {this.fromChild} />
+        <hr />
         <Container />
       </div>
     );
