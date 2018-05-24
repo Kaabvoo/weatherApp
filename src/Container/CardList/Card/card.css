@@ -41,12 +41,35 @@ div.Card *{
     align-items: flex-end;
 }
 
+.DBox{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+
+canvas{
+    width: 100%;
+    height: 100%;
+}
+
+.Detalles{
+    margin: 0px;
+    width: 40%;
+}
+
+.Detalles *{
+    margin: 0px;
+    font-size: 15px;
+}
+
+/*-----------------------------------------------------Animations---------------------------------------------------*/
+
 .wi-day-sunny{
     font-size: 90px;
     display: inline-block;
     color: yellow;
     z-index: 9;
-    animation: animacion_icono 10s infinite linear;
+    animation: animacion_icono 20s infinite linear;
 }
 
 @keyframes animacion_icono{

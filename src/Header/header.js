@@ -18,8 +18,7 @@ export default class Header extends Component {
   async cambiarYMostrar(o){
     if(this.state.estado){
       await Api.getLugar(this.state.lugar).then(ret=>{
-        array_weather.create_object(ret.data.name, Math.floor(ret.data.main.temp), ret.data.main.temp_max, ret.data.main.temp_min, ret.data.main.humidity, ret.data.wind.speed, ret.data.wind.deg, ret.data.id, ret.data.weather[0].main, ret.data.sys.country, ret.data.weather[0].main);
-        //this.props.check(true);
+        array_weather.create_object(ret.data.name, Math.floor(ret.data.main.temp), ret.data.main.temp_max, ret.data.main.temp_min, ret.data.main.humidity, ret.data.wind.speed, ret.data.wind.deg, ret.data.id, ret.data.weather[0].main, ret.data.sys.country);
       });
       this.props.check(true);
     }

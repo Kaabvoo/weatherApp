@@ -16,6 +16,7 @@ export default class CardList extends Component {
         console.log(JSON.parse(localStorage.getItem("WetherLocal")))
         if(JSON.parse(localStorage.getItem("WetherLocal")) !== null)
         {array_weather.data = JSON.parse(localStorage.getItem("WetherLocal"))}
+        array_weather.update_object();
     }
 
     componentWillUnmount(){
@@ -34,8 +35,12 @@ export default class CardList extends Component {
                         key={i} 
                         condition={card.icon} 
                         name = {card.name + "," + card.country} 
-                        temp = {card.temperature} 
+                        temp = {Math.floor(card.temperature)}
                         weather = {card.weather} 
+                        max = {card.temperature_max}
+                        min = {card.temperature_min}
+                        w_sp = {card.wind_speed}
+                        w_dg = {Math.floor(card.wind_degree)}
                     />
                     )}
                 )}
