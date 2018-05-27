@@ -10,29 +10,37 @@ export default class CardList extends Component {
         this.state = {
             test: false,
             up: true,
+            token: 'WetherLocal',
         }
         this.eraseItm = this.eraseItm.bind(this)
     }
     
     componentWillMount(){
         //console.log(JSON.parse(localStorage.getItem("WetherLocal")))
-        if(JSON.parse(window.localStorage.getItem("WetherLocal")) !== null)
-        {array_weather.data = JSON.parse(window.localStorage.getItem("WetherLocal"))}
+        if (typeof(Storage) !== "undefined"){
+            if(JSON.parse(window.localStorage.getItem(token)) !== null)
+            {array_weather.data = JSON.parse(window.localStorage.getItem(token))}
+        }else{
+            alert("Your Browser Doesent suppor Local Storage :'(")
+        }
         array_weather.update_object();
         this.setState({test: !this.state.test})
     }
 
     componentWillUnmount(){
-        window.localStorage.setItem("WetherLocal", JSON.stringify(array_weather.data))
+        if (typeof(Storage) !== "undefined"){
+            window.localStorage.setItem(token, JSON.stringify(array_weather.data))
+        }
     }
     componentWillUpdate(){
-        JSON.parse(window.localStorage.getItem("WetherLocal"))
+        if (typeof(Storage) !== "undefined"){
+            JSON.parse(window.localStorage.getItem(token))
+        }
     }
 
     eraseItm(i){
         array_weather.erase_object(i);
         this.setState({up: !this.state.up})
-        
     }
 
     render() {
