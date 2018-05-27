@@ -16,16 +16,17 @@ export default class CardList extends Component {
     
     componentWillMount(){
         //console.log(JSON.parse(localStorage.getItem("WetherLocal")))
-        if(JSON.parse(localStorage.getItem("WetherLocal")) !== null)
-        {array_weather.data = JSON.parse(localStorage.getItem("WetherLocal"))}
+        if(JSON.parse(window.localStorage.getItem("WetherLocal")) !== null)
+        {array_weather.data = JSON.parse(window.localStorage.getItem("WetherLocal"))}
         array_weather.update_object();
+        this.setState({test: !this.state.test})
     }
 
     componentWillUnmount(){
-        localStorage.setItem("WetherLocal", JSON.stringify(array_weather.data))
+        window.localStorage.setItem("WetherLocal", JSON.stringify(array_weather.data))
     }
     componentWillUpdate(){
-        JSON.parse(localStorage.getItem("WetherLocal"))
+        JSON.parse(window.localStorage.getItem("WetherLocal"))
     }
 
     eraseItm(i){

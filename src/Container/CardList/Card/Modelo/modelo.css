@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+div.Modelo{
+    font-family: 'Poiret One', cursive;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 98%;
+    width: 99%;
+    z-index: 11;
+    background-color: white;
+}
+
+p.closeWindow{
+    color: white;
+    background: linear-gradient(to right, cyan, red);
+    border: 0px;
+    width: 99.2%;
+    margin: 0px;
+    font-size: 30px;
+    text-align: right;
+}
+
+div.Detalles hr{
+    width: 241%;
+}
+
+.DBox{
+    overflow-y: scroll;
+    max-height: 83%;
+}
+
+.DBox :not(hr){
+    margin: 0px;
+    padding: 0px;
+}
+.DBox h2{
+    margin: 5px;
+    padding: 5px;
+    font-size: 40px;
+}
+.DBox p{
+    font-size: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    div.Modelo{
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        height: 98%;
+        width: 97%;
+        z-index: 11;
+        background-color: white;
+    }
+
+    p.closeWindow{
+        background-color: cyan;
+        width: 97%
+    }
+}

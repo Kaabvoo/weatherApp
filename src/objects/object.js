@@ -55,7 +55,7 @@ var array_weather = {
         localStorage.setItem("WetherLocal", JSON.stringify(array_weather.data))
     },
 
-    update_object(){
+    async update_object(){
         this.data.map(sub => {
             Api.getLugar(sub.name).then(res => {
                 sub.temperature = res.data.main.temp;
@@ -85,7 +85,7 @@ var array_weather = {
                         break;
                 }
             })
-            return true;
+            return sub;
         })
     },
 }
