@@ -18,8 +18,8 @@ export default class CardList extends Component {
     componentWillMount(){
         //console.log(JSON.parse(localStorage.getItem("WetherLocal")))
         if (typeof(Storage) !== "undefined"){
-            if(JSON.parse(window.localStorage.getItem(token)) !== null)
-            {array_weather.data = JSON.parse(window.localStorage.getItem(token))}
+            if(JSON.parse(window.localStorage.getItem(this.state.token)) !== null)
+            {array_weather.data = JSON.parse(window.localStorage.getItem(this.state.token))}
         }else{
             alert("Your Browser Doesent suppor Local Storage :'(")
         }
@@ -29,12 +29,12 @@ export default class CardList extends Component {
 
     componentWillUnmount(){
         if (typeof(Storage) !== "undefined"){
-            window.localStorage.setItem(token, JSON.stringify(array_weather.data))
+            window.localStorage.setItem(this.state.token, JSON.stringify(array_weather.data))
         }
     }
     componentWillUpdate(){
         if (typeof(Storage) !== "undefined"){
-            JSON.parse(window.localStorage.getItem(token))
+            JSON.parse(window.localStorage.getItem(this.state.token))
         }
     }
 
