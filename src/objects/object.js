@@ -27,6 +27,10 @@ var array_weather = {
             case "Thunderstorm":
                 prop = "wi wi-day-thunderstorm wi-fw"
                 break;
+            
+            case "Dust":
+                prop = "wi wi-dust wi-fw"
+                break;
 
             default:
                 break;
@@ -63,15 +67,9 @@ var array_weather = {
     },
 
     async update_object(){
+        var tempStr = [];
         this.data.map(sub => {
             Api.getLugar(sub.name).then(res => {
-                sub.temperature = res.data.main.temp;
-                sub.temperature_max = res.data.main.temp_max;
-                sub.temperature_min = res.data.main.temp_min;
-                sub.humidity = res.data.main.humidity;
-                sub.wind_speed = res.data.wind.speed;
-                sub.wind_degree = res.data.wind.deg;
-                sub.weather = res.data.weather[0].main;
                 switch (sub.weather) {
                     case "Clear":
                         sub.icon = "wi wi-day-sunny wi-fw"
@@ -93,12 +91,24 @@ var array_weather = {
                         sub.icon = "wi wi-day-thunderstorm wi-fw"
                         break;
 
+                    case "Dust":
+                        sub.icon = "wi wi-dust wi-fw"
+                        break;
+
                     default:
                         break;
                 }
+                sub.temperature = res.data.main.temp;
+                sub.temperature_max = res.data.main.temp_max;
+                sub.temperature_min = res.data.main.temp_min;
+                sub.humidity = res.data.main.humidity;
+                sub.wind_speed = res.data.wind.speed;
+                sub.wind_degree = res.data.wind.deg;
+                sub.weather = res.data.weather[0].main;
             })
             return sub;
         })
+        localStorage.setItem("WetherLocal", JSON.stringify(array_weather.data));
     },
 }
 

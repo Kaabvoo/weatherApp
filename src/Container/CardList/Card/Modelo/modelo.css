@@ -39,8 +39,12 @@ div.Detalles hr{
     padding: 5px;
     font-size: 40px;
 }
-.DBox p{
+div.DBox p{
     font-size: 25px;
+}
+
+div.DBox p.place{
+    font-size: 85px;
 }
 
 @media screen and (max-width: 768px) {

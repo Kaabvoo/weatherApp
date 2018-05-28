@@ -1,5 +1,4 @@
 div.CardList{
-    background-color: grey;
     display: flex;
     order: 4;
     flex-flow: wrap;
