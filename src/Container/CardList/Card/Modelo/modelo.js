@@ -8,6 +8,7 @@ export default class Modelo extends Component {
         super(props)
         this.state = {
             datos: [],
+            name: "Loading...",
             wSize: window.innerWidth-60,
             temp: "Loading...",
             max: "Loading...",
@@ -39,6 +40,7 @@ export default class Modelo extends Component {
         .then(res => {
             var r = res.data
             this.setState({
+                name: r.name + "," + r.sys.country,
                 temp: r.main.temp,
                 max: r.main.temp_max,
                 min: r.main.temp_min,
@@ -73,9 +75,13 @@ export default class Modelo extends Component {
                     <p className="closeWindow" onClick={this.props.putChild} >Cerrar</p>
                     <div className="DBox">
                         <div className="Now">
-                            <h2>Details for Today</h2> <ul>{this.state.weath.map((oneWea, i) => {
+                            <p className="place" >{this.state.name}</p>
+                            <h2>Details for Today:</h2>
+                            <ul>
+                            {this.state.weath.map((oneWea, i) => {
                                 return (<li key={i} >{oneWea.main}</li>)
-                            })}</ul>
+                            })}
+                            </ul>
                             <p>Actual Temperature: {this.state.temp}</p>
                             <p>Max Temperature: {this.state.max}</p>
                             <p>Min Temperature: {this.state.min}</p>
@@ -95,11 +101,10 @@ export default class Modelo extends Component {
                                 verticalGrid
                                 height="300"
                                 width={this.state.wSize}
-                                data={[this.state.datos, [{x: 1, y: 2}, {x: 2, y: 4}, {x: 3, y: 6}]]}
+                                data={[this.state.datos]}
                             />
                         </div>
                     </div>
-                    <button className="borrar" onClick={this.cardErase} >Borrar</button>
                 </div>
         );
     }

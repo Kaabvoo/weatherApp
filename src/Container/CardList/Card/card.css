@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Ubuntu+Mono|Patua+One');
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Ubuntu+Mono|Patua+One|Gloria+Hallelujah');
 
 div.Card{
-    background-color: rgb(76, 149, 192);
+    background-color: rgba(0, 162, 255, 0.185);
     padding: 5px 5px;
     margin: 5px 5px;
     width: 260px;
@@ -22,6 +22,10 @@ div.Card *{
     text-align: center;
 }
 
+.where:hover{
+    cursor: pointer;
+}
+
 .temp{
     display: inline-block;
     font-size: 70px;
@@ -38,6 +42,10 @@ div.Card *{
     align-items: center;
 }
 
+.icons i.wi:hover{
+    cursor: pointer;
+}
+
 .micel{
     height: 48%;
     display: flex;
@@ -52,6 +60,14 @@ button.borrar{
     margin: 0px;
     background-color: red;
     font-family: 'Patua One';
+}
+
+div.Card p.eliminarC{
+    background-color: red;
+    border-radius: 25px;
+    width: 96%;
+    text-align: right;
+    cursor: pointer;
 }
 
 button.borrar:hover{
@@ -162,5 +178,76 @@ button.borrar:hover{
     
     40%, 60% {
         transform: translate3d(0, 6px, 0);
+    }
+}
+
+.wi-day-thunderstorm{
+    font-size: 80px;
+    display: inline-block;
+    color: rgb(0, 102, 255);
+    z-index: 9;
+    animation: animacion_icono_thunder 10s infinite linear;
+}
+
+@keyframes animacion_icono_thunder{
+    10%, 90% {
+        transform: translate3d(-1px, 2px, 0);
+    }
+      
+    20%, 80% {
+        transform: translate3d(0, -5px, 0);
+    }
+    
+    30%, 50%, 70% {
+       transform: translate3d(3px, 2px, 0);
+    }
+    
+    40%, 60% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50%{color: rgb(0, 102, 255); text-shadow: 0 0 0px white;}
+    50.3%{color: white; text-shadow: 0 0 10px white;}
+    52%{color: rgb(0, 102, 255); text-shadow: 0 0 0px white;}
+    53%{color: rgb(0, 102, 255); text-shadow: 0 0 0px white;}
+    53.5%{color: white; text-shadow: 0 0 10px white;}
+    54%{color: rgba(0, 102, 255, 0.747); text-shadow: 0 0 0px white;}
+
+    70%{color: rgb(0, 102, 255); text-shadow: 0 0 0px white;}
+    71.3%{color: white; text-shadow: 0 0 10px white;}
+    71.7%{color: rgb(0, 102, 255); text-shadow: 0 0 0px white;}
+
+    85%{color: rgb(0, 102, 255); text-shadow: 0 0 0px white;}
+    85.3%{color: white; text-shadow: 0 0 10px white;}
+    85.7%{color: rgb(0, 102, 255); text-shadow: 0 0 0px white;}
+    87%{color: rgb(0, 102, 255); text-shadow: 0 0 0px white;}
+    87.2%{color: white; text-shadow: 0 0 10px white;}
+    87.6%{color: rgba(0, 102, 255, 0.747); text-shadow: 0 0 0px white;}
+
+}
+
+.wi-dust{
+    font-size: 80px;
+    display: inline-block;
+    color: orange;
+    z-index: 9;
+    animation: animacion_icono_dust 10s infinite linear;
+}
+
+@keyframes animacion_icono_dust{
+    10%, 90% {
+        text-shadow: 0 0 0px orange;
+    }
+      
+    20%, 80% {
+        text-shadow: 0 0 15px orange;
+    }
+    
+    30%, 50%, 70% {
+        text-shadow: 0 0 50px orange;
+    }
+    
+    40%, 60% {
+        text-shadow: 0 0 100px orange;
     }
 }

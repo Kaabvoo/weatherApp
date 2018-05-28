@@ -26,7 +26,7 @@ export default class Card extends Component {
 
     cardErase(i) {
         this.props.erase(this.props.index)
-        this.cardClick();
+        //this.cardClick();
     }
 
     changeUnit(event){
@@ -53,6 +53,7 @@ export default class Card extends Component {
                     <p className="temp" onClick={this.changeUnit}>{this.state.val}</p>
                 </div>
                 {d}
+                <p className="eliminarC" onClick={this.cardErase} >Eliminar</p>
             </div>
         );
     }
