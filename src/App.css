@@ -2,6 +2,10 @@ div.appHead{
     background-color: grey;
 }
 
+body{
+    background-color: grey;
+}
+
 hr{
     width: 95%;
 }

@@ -3,8 +3,10 @@ import Api from '../services/service'
 var array_weather = {
     data: [],
 
-    create_object(n, t, max, min, h, ws, wd, i, w, c, co){
+    create_object(n, t, max, min, h, ws, wd, i, w, c, co, ico){
         var prop = "";
+        //console.log(ico)
+        // if(ico.con)
         switch (w) {
             case "Clear":
                 prop = "wi wi-day-sunny wi-fw"
@@ -21,6 +23,11 @@ var array_weather = {
             case "Rain":
                 prop = "wi wi-day-sprinkle wi-fw"
                 break;
+
+            case "Thunderstorm":
+                prop = "wi wi-day-thunderstorm wi-fw"
+                break;
+
             default:
                 break;
         }
@@ -55,7 +62,7 @@ var array_weather = {
         localStorage.setItem("WetherLocal", JSON.stringify(array_weather.data))
     },
 
-    update_object(){
+    async update_object(){
         this.data.map(sub => {
             Api.getLugar(sub.name).then(res => {
                 sub.temperature = res.data.main.temp;
@@ -81,11 +88,16 @@ var array_weather = {
                     case "Rain":
                         sub.icon = "wi wi-day-sprinkle wi-fw"
                         break;
+
+                    case "Thunderstorm":
+                        sub.icon = "wi wi-day-thunderstorm wi-fw"
+                        break;
+
                     default:
                         break;
                 }
             })
-            return true;
+            return sub;
         })
     },
 }

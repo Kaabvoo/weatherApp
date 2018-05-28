@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Ubuntu+Mono|Patua+One');
 
 div.Card{
     background-color: rgb(76, 149, 192);
@@ -28,6 +28,10 @@ div.Card *{
     z-index: 10;
 }
 
+.temp:hover{
+    cursor: pointer;
+}
+
 .icons{
     display: flex;
     justify-content: center;
@@ -41,16 +45,22 @@ div.Card *{
     align-items: flex-end;
 }
 
-.DBox{
-    display: flex;
+button.borrar{
+    font-size: 15px;
+    border: 0px;
+    width: 100%;
     margin: 0px;
-    padding: 0px;
+    background-color: red;
+    font-family: 'Patua One';
 }
 
-canvas{
+button.borrar:hover{
     width: 100%;
-    height: 100%;
-}
+    margin: 0px;
+    background-color: brown;
+    font-size: 30px;
+    font-family: 'Patua One';
+}   
 
 .Detalles{
     margin: 0px;

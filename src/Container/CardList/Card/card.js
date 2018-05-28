@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import arrow from '../../../objects/arrow.png'
+import Modelo from './Modelo/modelo'
 import 'weather-icons/css/weather-icons.css';
 import './card.css'
 
@@ -8,53 +8,49 @@ export default class Card extends Component {
         super(props)
         this.state={
             estado: false,
+            eUnid: false,
+            val: Number,
         }
         this.cardClick = this.cardClick.bind(this)
         this.cardErase = this.cardErase.bind(this)
+        this.changeUnit = this.changeUnit.bind(this)
     }
 
-    cardClick(i){
+    componentWillMount(){
+        this.setState({val: this.props.temp  + "°C"})
+    }
+
+    cardClick(){
         this.setState({estado: !this.state.estado});
     }
 
-    cardErase() {
+    cardErase(i) {
         this.props.erase(this.props.index)
+        this.cardClick();
     }
 
-    rotation(){
-        return("dope")
+    changeUnit(event){
+        event.preventDefault()
+        this.state.eUnid ? this.setState({val: this.props.temp + "°C"}) : this.setState({val: Math.round((this.props.temp)*1.8+32) + "°F"})
+        this.setState({eUnid: !this.state.eUnid})
     }
 
     render() {
-        const ico = <img src={arrow} alt="Arrow" className={this.rotation} height="110" />
         let d;
-        const i = <i className={this.props.condition}></i>
+        const i = <i className={this.props.condition} onClick={this.cardClick}></i>
         if(this.state.estado){
-            d = <div>
-                    <hr/>
-                    <div className="DBox">
-                        <div className="Detalles">
-                            <p>Max: {this.props.max}</p>
-                            <p>Min: {this.props.min}</p>
-                            <p>Wind&#9759;</p>
-                            <p className="sp">Speed: {this.props.w_sp}</p>
-                            <p className="de">Degree: {this.props.w_dg}</p> 
-                        </div>
-                        <div className="Rot">
-                            {ico}
-                        </div>
-                    </div>
-                </div>
+            d = <Modelo getChild={this.cardErase} putChild={this.cardClick} name={this.props.name}/>;
         }
         else{
             d = null
         }
+
         return (
-            <div className="Card" onClick={this.cardClick} onDoubleClick={this.cardErase} >
-                <p className="where" >{this.props.name}</p>
+            <div className="Card">
+                <p className="where" onClick={this.cardClick} >{this.props.name}</p>
                 <div className="icons">
                     {i}
-                    <p className="temp" >{this.props.temp}°C</p>
+                    <p className="temp" onClick={this.changeUnit}>{this.state.val}</p>
                 </div>
                 {d}
             </div>
